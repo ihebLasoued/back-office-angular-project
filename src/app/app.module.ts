@@ -13,11 +13,13 @@ import {SharedModule} from "./shared/shared.module";
 import {ExampleModule} from "./example/example.module";
 import {AdminService} from "./shared/services/admin.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
     LoginComponent,
+
   ],
   imports: [
     BrowserModule,

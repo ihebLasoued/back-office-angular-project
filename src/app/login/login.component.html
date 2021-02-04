@@ -22,6 +22,15 @@
                    value="Log in">
           </form>
           <hr>
+          <div class="form-group">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="isLoginFailed"
+            >
+              Echec de connexion
+            </div>
+          </div>
         </div>
       </div> <!-- /.col-xs-12 -->
     </div> <!-- /.row -->

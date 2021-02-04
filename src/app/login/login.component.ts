@@ -11,6 +11,7 @@ import {Credentials} from "../shared/models/credential";
 })
 export class LoginComponent implements OnInit {
   busy: Subscription;
+  isLoginFailed;
 
   constructor(private adminService: AdminService, private router: Router) {
   }
@@ -23,12 +24,19 @@ export class LoginComponent implements OnInit {
 
   attemptLogin() {
     // TODO WebService Admin
-    /*this.busy = this.adminService.loginAdmin(this.credentials).subscribe(data => {
+    this.busy = this.adminService.loginAdmin(this.credentials).subscribe(data =>{
       this.adminService.saveAdmin(data);
-      this.router.navigate(['/'], {queryParams: {reload: true}});
-    });*/
+      this.router.navigate(['/example'], {queryParams: {reload: true}})
+    },
+      err => {
+        this.isLoginFailed=true;
+        console.log(err)
+        this.router.navigate(['/login'])
+      }
+);
+    }
 
-    this.router.navigate(['/'], {queryParams: {reload: true}});
-  }
+
+
 
 }

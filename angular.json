@@ -21,6 +21,9 @@
               "src/favicon.ico"
             ],
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/styles.css",
               "src/assets/plugins/morris/morris.css",
               "src/assets/css/bootstrap.min.css",
@@ -140,6 +143,9 @@
               "src/assets/plugins/Buttons-1.5.1/js/buttons.html5.js"
             ],
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/styles.css",
               "src/assets/plugins/morris/morris.css",
               "src/assets/css/bootstrap.min.css",
