@@ -12,9 +12,7 @@ export class ProduitService {
   addProduct(dataProduct:any) {
     return this.http.post("http://127.0.0.1:8000/api/addProduct", dataProduct);
   }
- /* addProduct(  myFormData = new FormData()){
-    return this.http.post("http://127.0.0.1:8000/api/addProduct", myFormData);
-  }*/
+
   listeProduct() {
     return this.http.get<Product[]>("http://127.0.0.1:8000/api/allProduct");
   }

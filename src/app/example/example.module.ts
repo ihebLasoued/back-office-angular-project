@@ -10,6 +10,7 @@ import {  MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule } from "@angular/material";
   import { MatIconModule } from '@angular/material/icon';
   import {MatButtonModule} from '@angular/material/button';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import {  MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
 
 
   ],
-  declarations: [ListComponent, FormulaireComponent,ProduitComponent]
+  declarations: [ListComponent, FormulaireComponent,ProduitComponent, UserComponent]
 })
 export class ExampleModule {
 }

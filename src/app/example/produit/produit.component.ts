@@ -2,7 +2,7 @@ import { Component, OnInit, SecurityContext } from '@angular/core';
 import { Product } from '../../shared/models/Product';
 import { ProduitService } from '../../shared/services/produit.service';
 import swal from 'sweetalert';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 import { NgForm } from '@angular/forms';
 
 

@@ -4,6 +4,7 @@ import {NgModule} from "@angular/core";
 import {ListComponent} from "./list/list.component";
 import {FormulaireComponent} from "./formulaire/formulaire.component";
 import { ProduitComponent } from "./produit/produit.component";
+import { UserComponent } from "./user/user.component";
 
 export const routes: Routes = [
 
@@ -17,6 +18,10 @@ export const routes: Routes = [
   {
     path: 'product',
     component: ProduitComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
   }
 ];
 
