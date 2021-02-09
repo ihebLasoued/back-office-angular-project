@@ -5,6 +5,7 @@ import {ListComponent} from "./list/list.component";
 import {FormulaireComponent} from "./formulaire/formulaire.component";
 import { ProduitComponent } from "./produit/produit.component";
 import { UserComponent } from "./user/user.component";
+import { AllProductComponent } from "./all-product/all-product.component";
 
 export const routes: Routes = [
 
@@ -20,9 +21,14 @@ export const routes: Routes = [
     component: ProduitComponent
   },
   {
+    path: 'AllProducts',
+    component: AllProductComponent
+  },
+  {
     path: 'user',
     component: UserComponent
-  }
+  },
+  {path:'product/:id', component:ProduitComponent}
 ];
 
 @NgModule({

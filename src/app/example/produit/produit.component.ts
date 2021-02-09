@@ -4,6 +4,7 @@ import { ProduitService } from '../../shared/services/produit.service';
 import swal from 'sweetalert';
 
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,20 +15,25 @@ import { NgForm } from '@angular/forms';
 export class ProduitComponent implements OnInit {
 product:Product;
 products:Product[];
-imagePath="http://127.0.0.1:8000/uploads/products/"
+id : number;
 file:any
-displayedColumns: string[] = ['No', 'Image','name', 'price', 'quantity','actions'];
-dataSource;
-  constructor(private produitService:ProduitService) {
+
+  constructor(private produitService:ProduitService,private router : ActivatedRoute) {
       this.product = new Product();
+      this.id=this.router.snapshot.params['id'];
+      console.log(this.id)
+    //  this.product=new Product(1,"hhhh",100,100,null,null);
+    if(this.id!=null)
+    this.produitService.getProductById(this.id).subscribe((data: Product)=> {
+      console.log(data);
+      this.product=data
+
+    });
   }
 
   ngOnInit() {
-    this.produitService.listeProduct().subscribe((data: Product[])=> {
-      console.log(data);
-      this.products=data;
-      this.dataSource = data;
-    });
+
+
   }
 
   imageUpload(event)
@@ -37,43 +43,35 @@ this.file=event.target.files[0];
   }
   addProduct(f:NgForm){
     const myFormData = new FormData();
-
     myFormData.append('label',f.value.name)
     myFormData.append('quantity',f.value.quantity)
-    myFormData.append('prix',f.value.prix)
+    myFormData.append('prix',f.value.prix);
+    myFormData.append('image',this.file);
 
-    myFormData.append('image',this.file)
+    if(this.id==null)
+    {
+
   this.produitService.addProduct(myFormData).subscribe(res => {
     swal("Good job!", "Product Adeed", "success");
-    this.ngOnInit();
+
     });
   }
 
+  else
+{
+console.log(f.value.name)
+myFormData.append('id',this.id.toString());
 
-  delete(product){
+  this.produitService.updateProduct(myFormData).subscribe(res => {
+    swal("Good job!", "Product Adeed", "success");
 
-      swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this Product!",
-        icon: "warning",
-        buttons: ["No!", true],
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          this.produitService.deleteProduct(product).subscribe(res => {
-            swal("Poof! this Product has been deleted!", {
-              icon: "success",
-          });
-          this.ngOnInit();
-          });
-        } else {
-          swal("Your Productis safe!");
-        }
-      });
+    });
+  }
+}
 
 
-    }
+
+
 
 
 }

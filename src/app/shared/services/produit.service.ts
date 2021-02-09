@@ -19,5 +19,11 @@ export class ProduitService {
   deleteProduct(product : Product) {
     return this.http.post("http://127.0.0.1:8000/api/deleteProduct",product );
   }
+  getProductById(id:number) {
+    return this.http.get<Product>("http://127.0.0.1:8000/api/Product/"+id);
+  }
+  updateProduct(dataProduct:any) {
+    return this.http.post("http://127.0.0.1:8000/api/updateProduct", dataProduct);
+  }
 
 }

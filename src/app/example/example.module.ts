@@ -11,6 +11,7 @@ import {  MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   import { MatIconModule } from '@angular/material/icon';
   import {MatButtonModule} from '@angular/material/button';
 import { UserComponent } from './user/user.component';
+import { AllProductComponent } from './all-product/all-product.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,7 @@ import { UserComponent } from './user/user.component';
 
 
   ],
-  declarations: [ListComponent, FormulaireComponent,ProduitComponent, UserComponent]
+  declarations: [ListComponent, FormulaireComponent,ProduitComponent, UserComponent, AllProductComponent]
 })
 export class ExampleModule {
 }
