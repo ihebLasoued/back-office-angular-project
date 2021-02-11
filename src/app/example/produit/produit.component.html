@@ -10,7 +10,7 @@
               <h4 class="card-title">Manage Products</h4>
             </div>
             <div class="card-body">
-          <form class="form-horizontal"  #f="ngForm" (ngSubmit)="f.form.valid && addProduct(f)"
+          <form class="form-horizontal"  #f="ngForm" (ngSubmit)="f.form.valid && addProduct()"
          >
             <div class="form-group">
               <label class="col-md-2 control-label">Name</label>
@@ -60,16 +60,17 @@
             <div class="form-group">
               <label class="col-md-2 control-label">Image</label>
               <div class="col-md-10">
-                <input type="file" class="form-control" placeholder="image"  (change)="imageUpload($event)" name="image" required >
+                <!--<input type="file" class="form-control" placeholder="image"  (change)="imageUpload($event)" name="image" required >-->
+                <input type="file" class="file-input-banner" accept="image/*">
 
 
               </div>
             </div>
 
-            <div class="add ml-auto mr-auto"*ngIf="id==null"  >
+            <div class="add ml-auto mr-auto" *ngIf="id==undefined"  >
               <input type="submit" class="btn btn-success btn-round" value="add Product"  />
             </div>
-            <div class="add ml-auto mr-auto"*ngIf="id!==null"  >
+            <div class="add ml-auto mr-auto"*ngIf="id!==undefined"  >
               <input  type="submit" class="btn btn-warning btn-round" value="Update Product"  />
             </div>
 

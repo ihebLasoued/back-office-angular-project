@@ -15,24 +15,25 @@ import { ActivatedRoute } from '@angular/router';
 export class ProduitComponent implements OnInit {
 product:Product;
 products:Product[];
-id : number;
+id : number=0;
 file:any
 
   constructor(private produitService:ProduitService,private router : ActivatedRoute) {
       this.product = new Product();
-      this.id=this.router.snapshot.params['id'];
-      console.log(this.id)
-    //  this.product=new Product(1,"hhhh",100,100,null,null);
-    if(this.id!=null)
-    this.produitService.getProductById(this.id).subscribe((data: Product)=> {
-      console.log(data);
-      this.product=data
 
-    });
   }
 
   ngOnInit() {
+    console.log(this.id)
+    this.id=this.router.snapshot.params['id'];
+    console.log(this.id)
 
+  if(this.id!=null)
+  this.produitService.getProductById(this.id).subscribe((data: Product)=> {
+
+    this.product=data
+
+  });
 
   }
 
@@ -41,17 +42,17 @@ file:any
 console.log(event)
 this.file=event.target.files[0];
   }
-  addProduct(f:NgForm){
-    const myFormData = new FormData();
+  addProduct(){
+    /*const myFormData = new FormData();
     myFormData.append('label',f.value.name)
     myFormData.append('quantity',f.value.quantity)
     myFormData.append('prix',f.value.prix);
-    myFormData.append('image',this.file);
+    myFormData.append('image',this.file);*/
 
     if(this.id==null)
     {
 
-  this.produitService.addProduct(myFormData).subscribe(res => {
+  this.produitService.addProduct(this.product).subscribe(res => {
     swal("Good job!", "Product Adeed", "success");
 
     });
@@ -59,11 +60,11 @@ this.file=event.target.files[0];
 
   else
 {
-console.log(f.value.name)
-myFormData.append('id',this.id.toString());
+/*console.log(f.value.name)
+myFormData.append('id',this.id.toString());*/
 
-  this.produitService.updateProduct(myFormData).subscribe(res => {
-    swal("Good job!", "Product Adeed", "success");
+  this.produitService.updateProduct(this.product).subscribe(res => {
+    swal("Good job!", "Product updated", "success");
 
     });
   }

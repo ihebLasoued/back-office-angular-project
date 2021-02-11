@@ -40,9 +40,12 @@
               "src/assets/plugins/multiselect/css/multi-select.css",
               "src/assets/plugins/select2/dist/css/select2.css",
               "src/assets/plugins/select2/dist/css/select2-bootstrap.css",
-              "src/assets/plugins/Buttons-1.5.1/css/buttons.dataTables.css"
+              "src/assets/plugins/Buttons-1.5.1/css/buttons.dataTables.css",
+              "src/assets/css/fileinput.min.css"
+
             ],
             "scripts": [
+              "src/assets/js/fileinput.min.js",
               "src/assets/js/modernizr.min.js",
               "src/assets/js/jquery.min.js",
               "src/assets/js/bootstrap.min.js",

@@ -40,7 +40,7 @@ export class AdminService extends GenericService {
 
 
   loginAdmin(credentials: Credentials) {
-    return this.http.post(Config.adminUrl + "/login", credentials);
+    return this.http.post(Config.adminUrl + "/loginAdmin", credentials);
   }
 
   saveAdmin(data: any) {
@@ -80,5 +80,9 @@ export class AdminService extends GenericService {
     const headers = this.headers.set('Authorization', this.adminToken);
     return this.http.delete(Config.adminUrl + id + "/deleteExample", {headers});
   }
+  /*getTokent(){
+    this.adminToken = "data.token";
+
+  }*/
 
 }

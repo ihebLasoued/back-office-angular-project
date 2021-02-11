@@ -9,8 +9,8 @@ export class ProduitService {
 
   constructor(private http: HttpClient) { }
 
-  addProduct(dataProduct:any) {
-    return this.http.post("http://127.0.0.1:8000/api/addProduct", dataProduct);
+  addProduct(product:Product) {
+    return this.http.post("http://127.0.0.1:8000/api/addProduct", product);
   }
 
   listeProduct() {
@@ -22,8 +22,8 @@ export class ProduitService {
   getProductById(id:number) {
     return this.http.get<Product>("http://127.0.0.1:8000/api/Product/"+id);
   }
-  updateProduct(dataProduct:any) {
-    return this.http.post("http://127.0.0.1:8000/api/updateProduct", dataProduct);
+  updateProduct(product:Product) {
+    return this.http.post("http://127.0.0.1:8000/api/updateProduct", product);
   }
 
 }

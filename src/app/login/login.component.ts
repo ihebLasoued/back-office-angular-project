@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     // TODO WebService Admin
     this.busy = this.adminService.loginAdmin(this.credentials).subscribe(data =>{
       this.adminService.saveAdmin(data);
-      this.router.navigate(['/example'], {queryParams: {reload: true}})
+      this.router.navigate(['/example'])
     },
       err => {
         this.isLoginFailed=true;
