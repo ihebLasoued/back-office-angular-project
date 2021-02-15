@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Config } from '../config';
 import { User } from '../models/User';
 
 @Injectable({
@@ -10,9 +11,9 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   listeUsers() {
-    return this.http.get<User[]>("http://127.0.0.1:8000/api/allUsers");
+    return this.http.get<User[]>(Config.baseUrl+"/allUsers");
   }
-  deleteUser(user : User) {
-    return this.http.post("http://127.0.0.1:8000/api/deleteUser",user );
+  deleteUser(id : number) {
+    return this.http.delete(Config.baseUrl+"/deleteUser/"+id );
   }
 }

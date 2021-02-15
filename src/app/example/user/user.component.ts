@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
     });
   }
 
-  delete(user){
+  delete(id){
 
     swal({
       title: "Are you sure?",
@@ -34,7 +34,7 @@ export class UserComponent implements OnInit {
     })
     .then((willDelete) => {
       if (willDelete) {
-        this.produitService.deleteUser(user).subscribe(res => {
+        this.produitService.deleteUser(id).subscribe(res => {
           swal("Poof! this User has been deleted!", {
             icon: "success",
         });
