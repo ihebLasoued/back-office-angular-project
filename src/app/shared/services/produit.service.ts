@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Config } from '../config';
 import { Product } from '../models/Product';
 
 @Injectable({
@@ -10,20 +11,20 @@ export class ProduitService {
   constructor(private http: HttpClient) { }
 
   addProduct(product:Product) {
-    return this.http.post("http://127.0.0.1:8000/api/addProduct", product);
+    return this.http.post(Config.baseUrl+"/addProduct", product);
   }
 
   listeProduct() {
-    return this.http.get<Product[]>("http://127.0.0.1:8000/api/allProduct");
+    return this.http.get<Product[]>(Config.baseUrl+"/allProduct");
   }
-  deleteProduct(product : Product) {
-    return this.http.post("http://127.0.0.1:8000/api/deleteProduct",product );
+  deleteProduct(id:number) {
+    return this.http.delete(Config.baseUrl+"/deleteProduct/"+id);
   }
   getProductById(id:number) {
-    return this.http.get<Product>("http://127.0.0.1:8000/api/Product/"+id);
+    return this.http.get<Product>(Config.baseUrl+"/Product/"+id);
   }
-  updateProduct(product:Product) {
-    return this.http.post("http://127.0.0.1:8000/api/updateProduct", product);
+  updateProduct(id:number,product : Product) {
+    return this.http.put(Config.baseUrl+"/updateProduct/"+id,product);
   }
 
 }

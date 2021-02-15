@@ -63,7 +63,7 @@ this.file=event.target.files[0];
 /*console.log(f.value.name)
 myFormData.append('id',this.id.toString());*/
 
-  this.produitService.updateProduct(this.product).subscribe(res => {
+  this.produitService.updateProduct(this.id,this.product).subscribe(res => {
     swal("Good job!", "Product updated", "success");
 
     });

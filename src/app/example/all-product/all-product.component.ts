@@ -13,17 +13,17 @@ export class AllProductComponent implements OnInit {
   imagePath="http://127.0.0.1:8000/uploads/products/"
   product:Product;
   displayedColumns: string[] = ['No', 'Image','name', 'price', 'quantity','actions'];
-  dataSource;
+  products;
   constructor(private produitService:ProduitService,private router:Router) { }
 
   ngOnInit() {
     this.produitService.listeProduct().subscribe((data: Product[])=> {
       console.log(data);
 
-      this.dataSource = data;
+this.products=data;
     });
   }
-  delete(product){
+  delete(id){
 
     swal({
       title: "Are you sure?",
@@ -34,7 +34,7 @@ export class AllProductComponent implements OnInit {
     })
     .then((willDelete) => {
       if (willDelete) {
-        this.produitService.deleteProduct(product).subscribe(res => {
+        this.produitService.deleteProduct(id).subscribe(res => {
           swal("Poof! this Product has been deleted!", {
             icon: "success",
         });
